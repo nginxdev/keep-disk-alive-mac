@@ -1,7 +1,5 @@
 # KeepDiskAlive
 
-![KeepDiskAlive Icon](assets/icon.png)
-
 **Prevent your external drives from sleeping on macOS.**
 
 ![KeepDiskAlive Menu Bar Screenshot](assets/menu-bar-screenshot.png)
