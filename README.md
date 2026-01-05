@@ -4,6 +4,8 @@
 
 **Prevent your external drives from sleeping on macOS.**
 
+![KeepDiskAlive Menu Bar Screenshot](assets/menu-bar-screenshot.png)
+
 A modern, native macOS menu bar application designed to keep your external drives awake using configurable strategies. Built with SwiftUI for a seamless and lightweight experience.
 
 ## ✨ Features
@@ -92,4 +94,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
-Built with ❤️ for macOS.
+Built with ❤️ in Berlin.
