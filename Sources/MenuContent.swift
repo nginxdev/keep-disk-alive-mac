@@ -55,20 +55,22 @@ struct MenuContent: View {
             
             // MARK: - Drive List Section
             if keepAwakeManager.isGlobalEnabled {
-                ScrollView {
-                    VStack(spacing: 0) {
-                        if diskMonitor.connectedDisks.isEmpty {
-                            VStack(spacing: 8) {
-                                Image(systemName: "externaldrive.badge.xmark")
-                                    .font(.largeTitle)
-                                    .foregroundColor(Color(nsColor: .tertiaryLabelColor))
-                                Text("No Drives Connected")
-                                    .font(.callout)
-                                    .foregroundColor(.secondary)
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 32)
-                        } else {
+                if diskMonitor.connectedDisks.isEmpty {
+                    // Static Empty State (No ScrollView)
+                    VStack(spacing: 8) {
+                        Image(systemName: "externaldrive.badge.xmark")
+                            .font(.largeTitle)
+                            .foregroundColor(Color(nsColor: .tertiaryLabelColor))
+                        Text("No Drives Connected")
+                            .font(.callout)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 32)
+                } else {
+                    // Scrollable List of Disks
+                    ScrollView {
+                        VStack(spacing: 0) {
                             ForEach(diskMonitor.connectedDisks) { disk in
                                 DiskRow(disk: disk, 
                                         isHovered: hoveredDisk == disk.id, 
@@ -82,10 +84,10 @@ struct MenuContent: View {
                                 }
                             }
                         }
+                        .padding(.vertical, 8)
                     }
-                    .padding(.vertical, 8)
+                    .frame(height: min(CGFloat(diskMonitor.connectedDisks.count * 44 + 16), 350))
                 }
-                .frame(height: min(CGFloat(max(diskMonitor.connectedDisks.count, 1) * 44 + 16), 350))
             }
             
             Divider()
